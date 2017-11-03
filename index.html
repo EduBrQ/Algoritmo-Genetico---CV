@@ -1,38 +1,43 @@
 <html>
-    <head>
-	<link rel="stylesheet" href="./css/style.css" />
-	<link rel="stylesheet" href="./css/bootstrap.min.css" />
+<head>
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+    <script type="text/javascript" src="./lib/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="./src/main.js"></script>
+    <script type="text/javascript" src="src/algoritmoG.js"></script>
+    <script type="text/javascript" src="src/utilidades.js"></script>
+    <script type="text/javascript" src="./src/data.js"></script>
+</head>
 
-	<script type="text/javascript" src="./lib/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="./src/main.js"></script>
-	<script type="text/javascript" src="src/algoritmoG.js"></script>
-	<script type="text/javascript" src="src/utilidades.js"></script>
-	<script type="text/javascript" src="./src/data.js"></script>
-    </head>
-    <body>
-	<div class="container">
-	    <header>
-		<h1 id="title">Problema do Caixeiro Viajante - Algoritmo Genetico</h1>
-	    </header>
-	    <div class="row-fluid">
-		<div id="control_bottons" class="btn-group row">
-		    <button id="addRandom_btn" class="btn">Adiciona 10 pontos randomicos</button>
-		    <button id="start_btn" class="btn">Iniciar/Reiniciar</button>
-		    <button id="stop_btn" class="btn">Parar/Continuar</button>
-		    <button id="clear_btn" class="btn">Limpar</button>
-		</div>
-		<div class="row">
-		    <span id="status" class="show-grid"></span>
-		</div>
-		<canvas id="canvas" 
-		    width="880" height="660"
-		    style="border:1px solid;">
-		</canvas>
-	    </div>
-	</div>
-	<footer>Equipe:</footer>
-	<footer>
+<body>
+<div class="container">
+
+    <header>
+        <h1 id="title">Problema do Caixeiro Viajante - Algoritmo Genetico</h1>
+    </header>
+
+    <div class="row-fluid">
+
+        <div id="control_bottons" class="btn-group row">
+            <button id="addRandom_btn" class="btn">Adiciona 10 pontos randomicos</button>
+            <button id="start_btn" class="btn">Iniciar/Reiniciar</button>
+            <button id="stop_btn" class="btn">Parar/Continuar</button>
+            <button id="clear_btn" class="btn">Limpar</button>
+        </div>
+
+        <div class="row">
+            <span id="status" class="show-grid"></span>
+        </div>
+
+        <canvas id="canvas"
+                width="880" height="660"
+                style="border:1px solid;">
+        </canvas>
+    </div>
+</div>
+<footer>Equipe:</footer>
+<footer>
     Alex Eloi -- Jose Eduardo Borba -- Thiago Pablicio
-	</footer>
-    </body>
+</footer>
+</body>
 </html>

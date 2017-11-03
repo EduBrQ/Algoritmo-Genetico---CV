@@ -25,9 +25,11 @@ var roleta;
 $(function() {
   init();
   initData();
-  pontos = data10;
+
+  pontos = data8;
+
   $('#addRandom_btn').click(function() {
-    addPontosRandomicos(10);
+    addPontosRandomicos(8);
     $('#status').text("");
     running = false;
   });
@@ -79,11 +81,11 @@ function init_mouse() {
 }
 function initData() {
   running = false;
-  TAMANHO_POPULACAO = 30;
+  TAMANHO_POPULACAO = 10;
   ELITE_RATE = 0.3;
-  PROBABILIDADE_CRUZAMENTO = 0.9;
+  PROBABILIDADE_CRUZAMENTO = 0.7;
   PROBABILIDADE_MUTACAO  = 0.01;
-  TAXA_CRUZAMENTO_OX = 0.05;
+  TAXA_CRUZAMENTO_OX = 0.7;
   UNCHANGED_GENS = 0;
   qntMutacoes = 0;
   doMutacaoPrecisa = true;
@@ -91,18 +93,19 @@ function initData() {
   melhorValor = undefined;
   best = [];
   geracaoAtual = 0;
-  melhorAtual;
   populacao = []; //new Array(TAMANHO_POPULACAO);
   valores = new Array(TAMANHO_POPULACAO);
   valoresFinos = new Array(TAMANHO_POPULACAO);
   roleta = new Array(TAMANHO_POPULACAO);
 }
+
 function addPontosRandomicos(number) {
   running = false;
   for(var i = 0; i<number; i++) {
     pontos.push(pontoRandomico());
   }
 }
+
 function drawCircle(point) {
   ctx.fillStyle   = '#000';
   ctx.beginPath();
@@ -127,11 +130,17 @@ function drawLines(array) {
 function draw() {
   if(running) {
     GAProximaGeracao();
+
     $('#status').text("Tem " + pontos.length + " cidades no mapa, "
                       +"a " + geracaoAtual + "(a) geracao com "
                       + qntMutacoes + " vezes de mutacao. Melhor valor: "
                       + ~~(melhorValor));
+
+    if(qntMutacoes >= ~~(melhorValor) || geracaoAtual >= (pontos.length*100)){
+      running = false
+    }
   } else {
+
     $('#status').text("Tem " + pontos.length + " Cidades no mapa. ")
   }
   clearCanvas();
