@@ -8,6 +8,13 @@ function GAInicializacao() {
 
     setMelhorValor();
 }
+var tipoALgoritmo = 'ox';
+
+
+$(document).on('change','.tipoAlgoritmo',function() {
+    tipoALgoritmo = this.value
+
+});
 
 function GAProximaGeracao() {
 
@@ -15,7 +22,7 @@ function GAProximaGeracao() {
 
     geracaoAtual++;
     selecao();
-    cruzamento('pmx');
+    cruzamento(tipoALgoritmo);
     mutacao();
     setMelhorValor();
 }

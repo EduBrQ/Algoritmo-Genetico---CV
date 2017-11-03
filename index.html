@@ -1,8 +1,12 @@
 <html>
 <head>
+    <meta charset="utf-8">
+    <title>Algoritmo Genético</title>
     <link rel="stylesheet" href="./css/style.css"/>
-    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-    <script type="text/javascript" src="./lib/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./src/main.js"></script>
     <script type="text/javascript" src="src/algoritmoG.js"></script>
     <script type="text/javascript" src="src/utilidades.js"></script>
@@ -13,21 +17,57 @@
 <div class="container">
 
     <header>
-        <h1 id="title">Problema do Caixeiro Viajante - Algoritmo Genetico</h1>
+        <h1 id="title">Problema do Caixeiro Viajante - Algoritmo Genético</h1>
     </header>
 
     <div class="row-fluid">
 
         <div id="control_bottons" class="btn-group row">
-            <button id="addRandom_btn" class="btn">Adiciona 10 pontos randomicos</button>
-            <button id="start_btn" class="btn">Iniciar/Reiniciar</button>
-            <button id="stop_btn" class="btn">Parar/Continuar</button>
-            <button id="clear_btn" class="btn">Limpar</button>
+            <button id="addRandom_btn" class="btn btn-success">Adiciona 10 pontos randomicos</button>
+            <button id="start_btn" class="btn btn-info">Iniciar/Reiniciar</button>
+            <button id="stop_btn" class="btn btn-warning">Parar/Continuar</button>
+            <button id="clear_btn" class="btn btn-danger">Limpar</button>
+            <select class="tipoAlgoritmo">
+                <option value="">** Selecione o Tipo **</option>
+                <option value="ox">OX</option>
+                <option value="pmx">PMX</option>
+            </select>
         </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="taxacruzamento">TAXA DE CRUZAMENTO:</label>
+                    <input type="text" class="form-control" id="taxacruzamento">
+                </div>
+                <div class="form-group">
+                    <label for="taxamutacao">TAXA DE MUTAÇÃO:</label>
+                    <input type="text" class="form-control" id="taxamutacao">
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="55">TAMANHO DA PUPULAÇÃO:</label>
+                    <input type="text" class="form-control" id="55">
+                </div>
+
+                <div class="form-group">
+                    <h3>
+                        TEMPO DE DURAÇÃO:
+                        <span id="tempo" class="show-grid">23</span>
+                    </h3>
+                </div>
+            </div>
+
+        </div>
+
 
         <div class="row">
             <span id="status" class="show-grid"></span>
         </div>
+
 
         <canvas id="canvas"
                 width="880" height="660"

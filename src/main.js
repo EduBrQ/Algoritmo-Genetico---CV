@@ -81,13 +81,21 @@ function init_mouse() {
 }
 function initData() {
   running = false;
+
   TAMANHO_POPULACAO = 10;
+
   ELITE_RATE = 0.3;
-  PROBABILIDADE_CRUZAMENTO = 0.7;
-  PROBABILIDADE_MUTACAO  = 0.01;
+
+  PROBABILIDADE_CRUZAMENTO = $('#taxacruzamento').val() == "" ? 0.7 : $('#taxacruzamento').val();
+
+  PROBABILIDADE_MUTACAO  = $('#taxamutacao').val() == "" ? 0.01 : $('#taxamutacao').val();
+
   TAXA_CRUZAMENTO_OX = 0.7;
+
   UNCHANGED_GENS = 0;
+
   qntMutacoes = 0;
+
   doMutacaoPrecisa = true;
 
   melhorValor = undefined;
