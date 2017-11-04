@@ -10,29 +10,20 @@ function GAInicializacao() {
 }
 var tipoAlgoritmo = 'ox';
 
+
 $(document).on('change','.tipoAlgoritmo',function() {
     tipoAlgoritmo = this.value
-
 });
 
 function GAProximaGeracao() {
 
     //pegar tipo DE CRUZAMENTO por select
-    var inicio = new Date().getTime();
 
     geracaoAtual++;
     selecao();
     cruzamento(tipoAlgoritmo);
     mutacao();
     setMelhorValor();
-
-
-    var fim = new Date().getTime();
-    var tempo = fim - inicio;
-    console.log('Tempo de execucao: ' + tempo);
-    return tempo;
-
-
 }
 
 function selecao() {
@@ -52,8 +43,6 @@ function selecao() {
 
 function cruzamento(tipoCruzamento) {
 
-
-
     var queue = new Array();
     for (var i = 0; i < TAMANHO_POPULACAO; i++) {
 
@@ -70,16 +59,14 @@ function cruzamento(tipoCruzamento) {
 
             cruzamentoPmx(queue[i], queue[i + 1]);
 
-        }else {
+        }else if(tipoCruzamento == 'ox'){
             cruzamentoOx(queue[i], queue[i + 1]);
-
         }
     }
 
 }
 
 function cruzamentoPmx(x, y) {
-
 
     var px = populacao[x].slice(0);
     var py = populacao[y].slice(0);
